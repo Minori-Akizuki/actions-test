@@ -4,6 +4,7 @@ jobs:
   job:
     runs-on: [ubuntu-18.04]
     steps:
+      - uses: actions/checkout@v2.3.4
       - name: show_envs
         run: |
           echo GITHUB_ENV: $GITHUB_ENV
