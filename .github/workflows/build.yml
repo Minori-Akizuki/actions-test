@@ -28,7 +28,7 @@ jobs:
 
       - name: set_env_prd
         # tagging
-        if: github.event_name == 'push' && contains(github.ref, 'tags/')
+        if: github.event_name == 'push' && contains(github.ref, '/tags/')
         run: |
           echo ENV=prd >> $GITHUB_ENV
 
