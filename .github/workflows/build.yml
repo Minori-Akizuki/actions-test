@@ -10,13 +10,13 @@ jobs:
     steps:
       - name: show_envs
         run: |
-          echo $GITHUB_ENV
-          echo $ENV
-          echo $GITHUB_REF
-          echo ${{ github.ref }}
-          echo ${{ github.ref_name }}
-          echo ${{ github.head_ref }}
-          echo ${{ github.base_ref }}
+          echo GITHUB_ENV: $GITHUB_ENV
+          echo ENV: $ENV
+          echo GITHUB_REF: $GITHUB_REF
+          echo github.ref: ${{ github.ref }}
+          echo github.ref_name: ${{ github.ref_name }}
+          echo github.head_ref: ${{ github.head_ref }}
+          echo github.base_ref: ${{ github.base_ref }}
 
       - name: set_env_master
         run: |
