@@ -10,7 +10,6 @@ jobs:
     steps:
       - name: show_envs
         run: |
-          echo ENV='' >> $GITHUB_ENV
           echo GITHUB_ENV: $GITHUB_ENV
           echo ENV: $ENV
           echo GITHUB_REF: $GITHUB_REF
