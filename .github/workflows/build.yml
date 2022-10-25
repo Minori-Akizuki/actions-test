@@ -4,6 +4,7 @@ jobs:
   job:
     runs-on: [ubuntu-18.04]
     steps:
+      - uses: actions/checkout@v2.3.4
       - name: show_envs
         run: |
           echo GITHUB_ENV: $GITHUB_ENV
@@ -13,6 +14,7 @@ jobs:
           echo github.ref_name: ${{ github.ref_name }}
           echo github.head_ref: ${{ github.head_ref }}
           echo github.base_ref: ${{ github.base_ref }}
+          ls -ltr
 
       - name: set_env_dev
         # PR from release-dev
@@ -25,6 +27,7 @@ jobs:
         if: github.event_name == 'push' && contains(github.ref_name, 'release/')
         run: |
           echo ENV=stg >> $GITHUB_ENV
+          ls -ltr
 
       - name: set_env_prd
         # tagging
