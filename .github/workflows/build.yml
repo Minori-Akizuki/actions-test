@@ -38,12 +38,12 @@ jobs:
           echo ENV=prd >> $GITHUB_ENV
 
       - name: show_env_re
-        if: $ENV != ''
+        if: ${{ env.ENV }} != ''
         run: |
           export ENV=$ENV
           echo $ENV
 
       - name: nothing_todo
-        if: $ENV == ''
+        if: ${{ env.ENV }} == ''
         run: |
           echo nothing to do!
