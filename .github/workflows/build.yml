@@ -25,6 +25,7 @@ jobs:
         if: github.event_name == 'push' && contains(github.ref_name, 'release/')
         run: |
           echo ENV=stg >> $GITHUB_ENV
+          cat ./hogehoge.txt
 
       - name: set_env_prd
         # tagging
