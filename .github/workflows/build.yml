@@ -1,9 +1,8 @@
 on:
-  workflow_call:
-    inputs:
-      target:
-        required: true
-        type: string
+  workflow_run:
+    workflows: trigger
+    types:
+      - completed
 
 jobs:
   job:
@@ -11,7 +10,6 @@ jobs:
     steps:
       - name: show_envs
         run: |
-          echo ${{ inputs.target }}
           echo GITHUB_ENV: $GITHUB_ENV
           echo ENV: $ENV
           echo GITHUB_REF: $GITHUB_REF

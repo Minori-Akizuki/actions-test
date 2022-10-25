@@ -9,7 +9,3 @@ jobs:
       - name: message
         run: |
           echo 'workflow kicked!'
-      - name: call-other
-        uses: ./.github/workflows/build.yaml
-        with:
-          target: 'hogehoge'
