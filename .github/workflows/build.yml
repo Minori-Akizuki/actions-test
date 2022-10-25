@@ -18,11 +18,31 @@ jobs:
           echo github.head_ref: ${{ github.head_ref }}
           echo github.base_ref: ${{ github.base_ref }}
 
-      - name: set_env_master
+      - name: set_env_dev
+        # PR from release-dev
+        if: github.base_ref == 'release-dev'
         run: |
           echo ENV=dev >> $GITHUB_ENV
+      
+      - name: set_env_stg
+        # push to release/*
+        if: github.event_name == 'push' && contains(github.ref_name, 'release/')
+        run: |
+          echo ENV=stg >> $GITHUB_ENV
+
+      - name: set_env_prd
+        # tagging
+        if: github.event_name == 'push' && contains(github.ref_name, 'tags/')
+        run: |
+          echo ENV=prd >> $GITHUB_ENV
 
       - name: show_env_re
+        if: $ENV != ''
         run: |
           export ENV=$ENV
           echo $ENV
+
+      - name: nothing_todo
+        if: $ENV == ''
+        run: |
+          echo nothing to do!
