@@ -1,0 +1,28 @@
+on:
+  workflow_run:
+    workflows: trigger
+    types:
+      - completed
+
+jobs:
+  job:
+    runs-on: [ubuntu-18.04]
+    steps:
+      - name: show_envs
+        run: |
+          echo $GITHUB_ENV
+          echo $ENV
+          echo $GITHUB_REF
+          echo ${{ github.ref }}
+          echo ${{ github.ref_name }}
+          echo ${{ github.head_ref }}
+          echo ${{ github.base_ref }}
+
+      - name: set_env_master
+        run: |
+          echo ENV=dev >> $GITHUB_ENV
+
+      - name: show_env_re
+        run: |
+          export ENV=$ENV
+          echo $ENV
