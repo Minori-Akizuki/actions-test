@@ -37,7 +37,7 @@ jobs:
           echo ENV=prd >> $GITHUB_ENV
 
       - name: show_env_re
-        if: ${{ env.ENV }} != 0
+        if: ${{ env.ENV }}
         run: |
           export ENV=$ENV
           echo ENV: $ENV
