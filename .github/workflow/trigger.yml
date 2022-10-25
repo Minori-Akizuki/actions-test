@@ -1,0 +1,10 @@
+name: triger
+
+on: push
+
+jobs:
+  kick:
+    steps:
+      - name: message
+        run: |
+          echo 'workflow kicked!'
