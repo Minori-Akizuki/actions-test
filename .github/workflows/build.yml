@@ -1,8 +1,4 @@
-on:
-  workflow_run:
-    workflows: trigger
-    types:
-      - completed
+on: [push, pull_request]
 
 jobs:
   job:
@@ -43,6 +39,6 @@ jobs:
           echo ENV: $ENV
 
       - name: nothing_todo
-        if: ${{ env.ENV }} == ''
+        if: ${{ env.ENV == '' }}
         run: |
           echo nothing to do!
