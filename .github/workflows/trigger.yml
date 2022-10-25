@@ -3,7 +3,8 @@ name: triger
 on: push
 
 jobs:
-  kick:
+  job:
+    runs-on: [ubuntu-18.04]
     steps:
       - name: message
         run: |
