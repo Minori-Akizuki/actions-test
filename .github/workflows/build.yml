@@ -39,10 +39,9 @@ jobs:
       - name: show_env_re
         if: ${{ env.ENV }}
         run: |
-          export ENV=$ENV
           echo ENV: $ENV
 
       - name: nothing_todo
-        if: ${{ env.ENV == '' }}
+        if: env.ENV == ''
         run: |
           echo nothing to do!
