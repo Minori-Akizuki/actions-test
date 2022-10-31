@@ -1,10 +1,7 @@
 on:
   release:
-    branch:
-      - 'master'
     types:
       - published
-
 
 jobs:
   job:
