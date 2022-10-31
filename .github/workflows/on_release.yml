@@ -1,9 +1,10 @@
 on:
   release:
+    branch:
+      - 'master'
     types:
       - published
-    branch:
-      - master
+
 
 jobs:
   job:
