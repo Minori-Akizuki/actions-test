@@ -21,5 +21,12 @@ jobs:
           echo github.head_ref: ${{ github.head_ref }}
           echo github.base_ref: ${{ github.base_ref }}
           echo github.event_name: ${{ github.event_name }}
+          echo github.event.release.target_commitish: {{ github.event.release.target_commitish }}
           echo this is in branch!
           ls -ltr
+      
+      - name: check_branch
+        if: github.event.release.target_commitish !== 'master'
+        run: | 
+          echo abort release!!!
+          exit 1
